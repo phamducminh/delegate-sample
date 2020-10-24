@@ -1,10 +1,13 @@
 package com.minhpd.example.delegatesample
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+
+const val TAG = "MainActivity"
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -16,6 +19,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         listWithTrash.remove("456")
-        Log.d("MainActivity", "recover item: ${listWithTrash.recover()}")
+        Log.d(TAG, "recover item: ${listWithTrash.recover()}")
+
+        val person = Person("Minh", "Pham")
+        Log.d(TAG, "Update count is ${person.updateCount}")
+        person.name = "Chau"
+        Log.d(TAG, "Update count is ${person.updateCount}")
+        person.lastName = "Le"
+        Log.d(TAG, "Update count is ${person.updateCount}")
     }
 }
